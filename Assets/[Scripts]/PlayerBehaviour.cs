@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [Header("Movement")] 
+    [Header("Movement")]
     public float horizontalForce;
     public float verticalForce;
     public bool isGrounded;
@@ -31,7 +31,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (isGrounded)
         {
-            //float deltaTime = Time.deltaTime;
 
             // Keyboard Input
             float x = Input.GetAxisRaw("Horizontal");
@@ -43,8 +42,8 @@ public class PlayerBehaviour : MonoBehaviour
             if (x != 0)
             {
                 x = FlipAnimation(x);
-            } 
-            
+            }
+
             // Touch Input
             Vector2 worldTouch = new Vector2();
             foreach (var touch in Input.touches)
@@ -56,7 +55,6 @@ public class PlayerBehaviour : MonoBehaviour
             float jumpMoveForce = jump * verticalForce; // * deltaTime;
 
             float mass = rigidbody.mass * rigidbody.gravityScale;
-
 
             rigidbody.AddForce(new Vector2(horizontalMoveForce, jumpMoveForce) * mass);
             rigidbody.velocity *= 0.99f; // scaling / stopping hack
